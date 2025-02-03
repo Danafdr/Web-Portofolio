@@ -1,0 +1,468 @@
+/* ============================
+    Body and Main Content Styles
+   ============================ */
+   body {
+    background: linear-gradient(-135deg, #1e3c72, #000000); /* Blue and Black Gradient */
+    color: #FFFFFF;
+    margin: 0;
+}
+
+h1, h2, p {
+    color: #FFFFFF;
+    margin: 0;
+}
+
+main {
+    padding-top: 1px; /* Space for fixed navbar */
+}
+
+/* ============================
+    Navbar Styles
+   ============================ */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1030;
+    background: linear-gradient(90deg, #1e3c72, #000000); /* Blue and Black Gradient */
+    color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+    color: #f0f0f0;
+    padding: 15px 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #5e5e5e6e;
+    font-weight: bold;
+}
+
+/* ============================
+   Button Styles
+   ============================ */
+.btn {
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Helps prevent overflow artifacts */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Gradient Button */
+.btn-gradient-premiere {
+    background: linear-gradient(135deg, #5c2e91, #000000); /* Purple and Black Gradient */
+    background-size: 200% 200%;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 0px solid transparent;
+    transition: background-position 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-gradient-premiere:hover {
+    background-position: right center;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(160, 32, 240, 0.8), 
+                0 0 20px rgba(160, 32, 240, 0.6); /* Reduced layers to prevent overflow issues */
+    border: 2px solid rgba(160, 32, 240, 0.8);
+}
+
+/* Ensuring a clean edge around the button */
+.btn-gradient-premiere::before {
+    content: '';
+    position: absolute;
+    top: -2px; /* Adjust slightly to cover any edge gaps */
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 8px; /* Match button border radius */
+    z-index: -1;
+}
+
+/* ============================
+    Hero Section and Masthead
+   ============================ */
+.hero-section, .masthead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.hero-section {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #1e3c72, #000000); /* Blue and Black Gradient */
+    min-height: calc(100vh - 80px);
+}
+
+.masthead-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.masthead {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Image/Masthead.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+.masthead-content {
+    position: relative;
+    z-index: 2;
+}
+
+.masthead-content h1,
+.masthead-content p {
+    color: #FFFFFF; /* White text color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Drop shadow effect */
+}
+
+.masthead-content h1 {
+    font-size: 36px; /* Font size for the heading */
+}
+
+.masthead-content p {
+    font-size: 20px; /* Font size for the paragraph */
+}
+
+.hero-section h1 {
+    font-size: 36px;
+}
+
+.hero-section p {
+    font-size: 20px;
+    max-width: 600px;
+}
+
+/* Responsive Media Query */
+@media (max-width: 768px) {
+    .masthead-container {
+        height: 40vh;
+    }
+
+    .hero-section h1 {
+        font-size: 28px;
+    }
+
+    .hero-section p {
+        font-size: 18px;
+    }
+}
+
+/* ============================ */
+/* Profile Card Styles */
+/* ============================ */
+.profile-card {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for responsiveness */
+    background: rgba(30, 60, 114, 0.1); /* Semi-transparent gray background */
+    padding: 20px; /* Inner padding */
+    border-radius: 10px; /* Rounded corners */
+    max-width: 700px; /* Max width of the card */
+    margin: 0 auto; /* Center the card */
+    margin-top: 50px;
+    position: relative; /* For stacking context */
+    z-index: 1; /* Stack above the pseudo-element */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    aspect-ratio: 13 / 7; /* Set the aspect ratio directly */
+    width: 100%; /* Make the width responsive */
+}
+
+.profile-card::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Cover the entire card */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../Image/Card_Bg.jpg') center; /* Background image */
+    background-size: cover; /* Cover the area */
+    opacity: 0.1; /* Set the opacity for transparency */
+    z-index: -1; /* Send to the back */
+    border-radius: 10px; /* Match card's border radius */
+}
+
+/* Add hover effect for the entire profile card */
+.profile-card:hover {
+    transform: scale(1.05); /* Scale effect on card hover */
+    box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.8); /* Blue cyan glow on hover */
+}
+
+/* Profile Image Styles */
+.profile-image {
+    width: 170px; /* Width of the profile image */
+    height: 170px; /* Height of the profile image */
+    object-fit: cover; /* Cover to maintain aspect ratio */
+    border: 3px solid #fff; /* White border around the image */
+    margin-top: -95px; /* Overlap with the card */
+    margin-left: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+    border-radius: 50%; /* Make the image circular */
+}
+
+.profile-image:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.profile-card {
+    padding: 20px; /* Optional padding for inner spacing */
+}
+
+.profile-card .profile-title,
+.profile-card .profile-role,
+.profile-card .profile-location,
+.profile-card .profile-experience {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    margin-bottom: 8px;
+}
+
+.profile-card .profile-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: -20px; /* Move the title upward */
+}
+
+.profile-card .profile-role,
+.profile-card .profile-location,
+.profile-card .profile-experience {
+    font-size: 18px;
+    margin-top: -5px; /* Optional: Adjust for each line to move upward */
+}
+
+.profile-card {
+    padding-top: 0; /* Reduce padding at the top of the card if needed */
+}
+
+/* ============================ 
+   Skills & Experience Section 
+   ============================ */
+   .skills-experience-section {
+    background: linear-gradient(135deg, #1e3c72, #000000);
+    border-radius: 15px;
+    color: #ffffff;
+    padding: 10px;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 10vh; /* Set a minimum height for proper centering */
+}
+
+.skills-experience-section h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.card-custom {
+    background: rgba(42, 42, 42, 0.8); /* Semi-transparent dark background for cards */
+    border-radius: 15px; /* Match rounded corners */
+    color: #ffffff; /* White text for readability */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for each card */
+}
+
+.card-body-custom {
+    padding: 15px; /* Padding for card body */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Adjust font size for title */
+}
+
+.card-subtitle {
+    font-size: 1rem; /* Subtitle size */
+    color: #dddddd; /* Lighter color for subtitle */
+}
+
+/* ============================
+    Custom Card Styles
+   ============================ */
+   .custom-card {
+    border-radius: 15px; /* Rounded edges */
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.custom-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Title font size */
+    margin-bottom: 1rem; /* Space below title */
+    color: #ffffff; /* Set title color to white for visibility */
+}
+
+.card-body {
+    padding: 20px; /* Inner padding */
+}
+
+.card-subtitle {
+    font-size: 1.2rem; /* Subtitle font size */
+    margin-top: 1rem; /* Space above subtitle */
+    margin-bottom: 0.5rem; /* Space below subtitle */
+    color: #ffffff; /* Set to white for better visibility */
+    opacity: 0.9; /* Optional: slightly less transparency for visibility */
+}
+
+.card-body ul {
+    list-style-type: disc; /* Default bullet points */
+    padding-left: 20px; /* Indent for better readability */
+}
+
+.card-body ul li {
+    margin-bottom: 0.5rem; /* Space between list items */
+    color: #ffffff; /* List item color */
+}
+
+
+/* ============================
+    Question Box Style
+   ============================ */
+body {
+    background: linear-gradient(-135deg, #1e3c72, #000000);
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.container {
+    margin-top: 80px;
+}
+
+.text-center {
+    color: #f0f0f0;
+}
+
+/* Navbar */
+.fixed-top {
+    background: linear-gradient(90deg, #1e3c72, #000000);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+    color: #f0f0f0;
+    padding: 15px 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #5e5e5e;
+    font-weight: bold;
+}
+
+/* Question & Answer Styling */
+.question-item {
+    background: rgba(30, 60, 114, 0.3);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.question-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.question-item input[type="checkbox"] {
+    display: none;
+}
+
+.question-item input[type="checkbox"]:checked + .answer-form {
+    display: block;
+}
+
+.answer-form {
+    display: none;
+    margin-top: 10px;
+}
+
+.answer-form p {
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+/* Submit Button */
+.btn-submit {
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #5c2e91, #000000);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(160, 32, 240, 0.8), 0 0 20px rgba(160, 32, 240, 0.6);
+    border: 2px solid rgba(160, 32, 240, 0.8);
+}
+
+textarea.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    resize: none;
+}
+
+textarea.form-control:focus {
+    box-shadow: 0px 0px 5px rgba(160, 32, 240, 0.6);
+    border: 1px solid rgba(160, 32, 240, 0.8);
+}
+
+/* ============================
+    Thank You Page Centered Styles
+   ============================ */
+   .thank-you-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 50px 20px;
+    background: linear-gradient(-135deg, #1e3c72, #000000); /* Blue and Black Gradient */
+    min-height: calc(100vh - 1px);
+}
+
+.thank-you-content {
+    max-width: 600px;
+}
+
+.thank-you-content h1,
+.thank-you-content p {
+    color: #FFFFFF;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Enhanced shadow effect */
+    margin: 0;
+}
+
+.thank-you-content h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.thank-you-content p {
+    font-size: 21px;
+    margin-bottom: 20px;
+}

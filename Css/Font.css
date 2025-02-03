@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "Gotham";
+    src: url("../Fonts/Gotham-Font/GothamLight.otf") format("opentype");
+    font-weight: 300; /* Light weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("../Fonts/Gotham-Font/GothamMedium.ttf") format("truetype");
+    font-weight: 500; /* Medium weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url("../Fonts/Gotham-Font/GothamBold.ttf") format("truetype");
+    font-weight: bold; /* Bold weight */
+    font-style: normal;
+}
+
+/* Example usage */
+body {
+    font-family: "Gotham", Arial, sans-serif;
+}
+
+p {
+    font-weight: 500; /* Medium weight for paragraphs */
+}
+
+h1 {
+    font-weight: bold; /* Bold weight for <h1> */
+}
+
+h2 {
+    font-weight: bold; /* Bold weight for <h2> */
+}
+
+h3 {
+    font-weight: 500; /* Medium weight for <h3> */
+}
+
+h4 {
+    font-weight: 500; /* Medium weight for <h4> */
+}
+
+h5 {
+    font-weight: 500; /* Medium weight for <h5> */
+}
+
+h6 {
+    font-weight: 300; /* Light weight for <h6> */
+}
+
+.light-text {
+    font-weight: 300; /* Light weight for specific text */
+}
